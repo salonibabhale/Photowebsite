@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SK PHOTOGRAPY </title>
+
+</head>
+<body>
+
+ <style>
+import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap');
+
+:root{
+  pink:#EE0548;
+  lack:#130f40;
+}
+
+*{
+  font-family: 'Roboto', sans-serif;
+  margin:0; padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none; border:none;
+  transition: .2s linear;
+  text-transform: capitalize;
+}
+
+*::selection{
+  background:pink;
+  color:white;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 6.5rem;
+  scroll-behavior: smooth;
+}
+
+body{
+  background:black;
+}
+
+section{
+  padding:3rem 9%;
+}
+
+.btn{
+  display: inline-block;
+  margin-top: 1rem;
+  border:.2rem solid var(--black);
+  color:var(--black);
+  font-size: 1.7rem;
+  padding:.7rem 3rem;
+  cursor: pointer;
+  background: none;
+}
+
+.btn:hover{
+  background:pink;
+  border-color:pink;
+  color:skyblue;
+}
+
+.heading{
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.heading h1{
+  font-size: 4rem;
+  color:#fff;
+  padding-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+header{
+  position: fixed;
+  top:0; left: 0; right: 0;
+  z-index: 10000;
+  background:var(--pink);
+  padding:2rem 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .navbar a{
+  color:white;
+  font-size: 2rem;
+  margin-left: 2rem;
+  
+}
+
+header .navbar a:hover{
+  color:yellow;
+}
+
+#menu-bar{
+  font-size:3rem;
+  color:white;
+  border-radius: .5rem;
+  border:.1rem solid #fff;
+  padding:.5rem 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.home{
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  background:url(../images/home-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.home .content span{
+  font-size: 9rem;
+  color:red;
+}
+
+.home .content h3{
+  font-size: 6rem;
+  color:white;
+  width:60rem;
+}
+
+.step-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.step-container .step{
+  background:white;
+  margin:1rem;
+  padding:2rem;
+  border-radius: .5rem;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.9);
+  text-align: center;
+  flex:1 1 30rem;
+}
+
+.step-container .step span{
+  font-size: 7rem;
+  color:pink;
+  font-weight: bolder;
+}
+
+.step-container .step h3{
+  font-size: 3rem;
+  color:black;
+}
+
+.step-container .step p{
+  font-size: 1.5rem;
+  color:blue;
+  padding:1rem 0;
+}
+
+.photos .box-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.photos .box-container .box{
+  flex:1 1 30rem;
+  margin:1rem;
+  overflow: hidden;
+  position: relative;
+  border-radius: .5rem;
+  box-shadow:0 .5rem 1rem rgba(0,0,0,.9);
+  height: 40rem;
+  cursor: pointer;
+}
+
+.photos .box-container .box img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.photos .box-container .box .info{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top:0; left: 0;
+  height: 100%;
+  width: 100%;
+  background:rgba(255,255,255,.8);
+  text-align: center;
+  transform: scale(1.3);
+  opacity: 0;
+}
+
+.photos .box-container .box:hover .info{
+  transform: scale(1);
+  opacity: 1;
+}
+
+.photos .box-container .box:hover img{
+  transform: scale(1.3);
+}
+
+.photos .box-container .box .info h3{
+  font-size: 3rem;
+  color:var(black);
+}
+
+.photos .box-container .box .info p{
+  font-size: 1.7rem;
+  color:#333;
+  padding:1rem;
+}
+
+
+.contact form{
+  padding:2rem;
+  background: #fff;
+  border-radius: .5rem;
+  box-shadow:0 .5rem 1rem rgba(0,0,0,.9);
+  text-align: center;
+}
+
+.contact form .inputBox{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contact form .inputBox input, .contact form textarea{
+  border:.2rem solid rgba(0,0,0,.1);
+  font-size: 1.7rem;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  text-transform: none;
+  color:#333;
+}
+
+.contact form .inputBox input{
+  width:49%;
+}
+
+.contact form textarea{
+  height: 15rem;
+  width:100%;
+  resize: none;
+}
+
+.contact form .inputBox input::placeholder,
+.contact form textarea::placeholder{
+  text-transform: capitalize;
+}
+
+.contact form .inputBox input:focus,
+.contact form textarea:focus{
+  border-color:pink;
+}
+
+.footer{
+  padding:2.5rem 1.5rem;
+  font-size: 2rem;
+  color:var(--black);
+  background:#fff;
+  text-align: center;
+}
+
+.footer span{
+  color:blue;
+}
+
+
+/* media queries  */
+
+@media (max-width:1200px){
+
+  html{
+    font-size: 55%;
+  }
+
+}
+
+@media (max-width:991px){
+
+  header{
+    padding:2rem 4%;
+  }
+
+  section{
+    padding:3rem 4%;
+  }
+
+}
+
+@media (max-width:768px){
+
+  #menu-bar{
+    display: block;
+  }
+
+  header .navbar{
+    position: fixed;
+    top:100%; left: 0; right: 0;
+    background:black;
+    padding:1rem 0;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header .navbar.nav-toggle{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  header .navbar a{
+    display: block;
+    background:#fff;
+    border-radius: .5rem;
+    color:var(--black);
+    margin:1.5rem;
+    padding:1rem 2rem;
+    font-size: 2.5rem;
+	
+  }
+
+  .home{
+    justify-content: center;
+    background-position:right;
+  }
+
+  .home .content{
+    text-align: center;
+  }
+
+  .home .content span{
+    font-size: 2rem;
+  }
+
+  .home .content h3{
+    font-size: 4rem;
+    width:auto;
+  }
+
+  .contact form .inputBox input{
+    width:100%;
+  }
+
+}
+
+@media (max-width:450px){
+
+  html{
+    font-size: 50%;
+  }
+
+}
+
+</style>
+
+
+
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+
+        <a href="#home">home</a>
+        <a href="#photos"> photos</a>  
+        <a href="#contact">contact</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<section class="home" id="home">
+
+    <div class="content">
+        <span> SK PHOTOGRAPY </span>
+    <h3 style=background:green;> we make every moment special </h3>
+       
+    </div>
+
+</section>
+
+
+<section class="step-container">
+
+    <div class="step">
+        <span> </span>
+        <h3>ENGAGEMENT</h3>
+        <p> </p>
+        
+    </div>
+
+    <div class="step">
+        <span> </span>
+        <h3>WEDDING</h3>
+        <p> </p>
+        
+    </div>
+
+    <div class="step">
+        <span> </span>
+        <h3> PRE-WEDDING</h3>
+        <p> </p>
+        
+    </div>
+	
+	<div class="step">
+        <span> </span>
+        <h3>PORTFOLIO </h3>
+        <p> </p>
+        
+    </div>
+	
+	<div class="step">
+        <span> </span>
+        <h3> BABYSHOOT </h3>
+        <p> </p>
+        
+    </div>
+	
+</section>
+
+
+
+<section class="photos" id="photos">
+
+    <div class="heading">
+        <h1> OUR TOP PHOTOGRAPY </h1>
+        <img src="" alt="">
+    </div>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="no1.jpg" alt="">
+            <div class="info">
+                <h3>baby shoot</h3>
+                
+                <a href="#" class="btn">click for more</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="no2.jpg" alt="">
+            <div class="info">
+                <h3>Bride Shoot</h3>
+                <p> </p>
+                <a href="#" class="btn">click for more</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="no3.jpg" alt="">
+            <div class="info">
+                <h3>Pre-Wedding Shoot</h3>
+                <p> </p>
+                <a href="#" class="btn">click for more</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="no4.jpg" alt="">
+            <div class="info">
+                <h3>Bride Shoot</h3>
+                <p> </p>
+                <a href="#" class="btn">click for more</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="no5.jpg" alt="">
+            <div class="info">
+                <h3>Wedding Shoot</h3>
+                <p> </p>
+                <a href="#" class="btn">click for more</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="no6.jpg" alt="">
+            <div class="info">
+                <h3>Baby Shoot</h3>
+                <p> </p>
+                <a href="#" class="btn">click for  more</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+ 
+
+
+<section class="contact" id="contact">
+
+    <div class="heading">
+        <h1>contact us</h1>
+	
+        <img src="images/header-img.png" alt="">
+    </div>
+
+    <form action="">
+        <div class="inputBox">
+            <input type="text" placeholder="your name">
+            <input type="email" placeholder="your email">
+        </div>
+        <div class="inputBox">
+            <input type="number" placeholder="your number">
+            <input type="text" placeholder="your address">
+        </div>
+        <textarea placeholder="say something" name="" id="" cols="30" rows="10"></textarea>
+        <input type="submit" value="send message" class="btn">
+    </form>
+
+</section>
+
+
+
+
+
+<div class="footer"> created by:- <span> saloni babhale web designer(7066597606) </span>  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
